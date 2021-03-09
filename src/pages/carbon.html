@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon</title>
+    <script src="https://kit.fontawesome.com/15caa5e93e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="carbon-component">
+            <%= require('html-loader!../carbon/accordion.html') %>
+        </div>
+        <div class="carbon-component">
+            <%= require('html-loader!../carbon/button.html') %>
+        </div>
+        <div class="carbon-component">
+            <%= require('html-loader!../carbon/notification.html') %>
+        </div>
+        <div class="carbon-component">
+            <%= require('html-loader!../carbon/table.html') %>
+        </div>
+    </div>
+    <!-- <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
+</body>
+
+</html>

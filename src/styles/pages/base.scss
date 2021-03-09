@@ -1,0 +1,16 @@
+@import "./single";
+@import "./exhibit.scss";
+
+.page-template-the-collection {
+	.block.hero.style-1 {
+		margin-bottom: 50px;
+	}
+	.fieldset.filters {
+		.facet-wrap {
+			width: calc((2 / 5 * 100%) - 1.4rem);
+		}
+		.facet-label {
+			margin: 0 2rem 0 0;
+		}
+	}
+}

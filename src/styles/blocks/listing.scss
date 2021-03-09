@@ -1,0 +1,112 @@
+.block.listing {
+	// Setting the standard for listing grids. Applied to posts, events, & records
+	&.grid {
+		.wrapper {
+			max-width: $percentage;
+			padding: 0;
+		}
+		.col {
+			overflow: hidden;
+		}
+		.items {
+			@include flex($align: flex-start);
+
+			@include tablet-portrait-up {
+				margin-left: -1.4rem;
+				margin-right: -1.4rem;
+				@include flex($justify: flex-start, $align: flex-start);
+			}
+		}
+		.item {
+			@include tablet-portrait-up {
+				margin-left: 1.4rem;
+				margin-right: 1.4rem;
+				flex: 1 0 calc((1 / 2 * 100%) - 2.8rem);
+				max-width: calc((1 / 2 * 100%) - 2.8rem);
+			}
+			@include tablet-landscape-up {
+				flex: 1 0 calc((1 / 3 * 100%) - 2.8rem);
+				max-width: calc((1 / 3 * 100%) - 2.8rem);
+			}
+		}
+	}
+
+	// Breaking the standard with records because they should be in a 1/5 grid
+	.item.record {
+		flex: 1 0 calc((1 / 5 * 100%) - 2.8rem);
+		max-width: calc((1 / 5 * 100%) - 2.8rem);
+		min-width: 200px;
+		.meta {
+			font-size: 0.8rem;
+			.title {
+				margin-bottom: 0.2rem;
+				font-size: 1em;
+				font-weight: $base-font-weight;
+				line-height: 1.6;
+				&:before {
+					content: none;
+				}
+			}
+		}
+		.image {
+			@include aspect-ratio(1, 1);
+			margin-bottom: 1.4rem;
+			&.placeholder {
+				background-image: url($img-path + "logo-white-icon.svg");
+				background-size: 60%;
+				background-color: $black;
+				background-position: center;
+			}
+		}
+		.author {
+			margin-bottom: 0;
+		}
+		.buttons {
+			padding-top: 0;
+		}
+	}
+
+	// Styling posts and events to match the single templates
+	.item.post,
+	.item.event {
+		.meta {
+			font-size: 0.8rem;
+			time + time {
+				&:before {
+					content: "";
+					display: inline-block;
+					width: 0.24rem;
+					height: 0.24rem;
+					margin: 0 0.6rem;
+					background-color: $black;
+					border-radius: 0.3rem;
+					transform: translateY(-50%);
+				}
+			}
+			.category a {
+				color: $base-font-color;
+				text-decoration: underline;
+			}
+			.date,
+			.title {
+				margin-bottom: 0.7rem;
+			}
+			p {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	// Listing styles that apply to all item types
+
+	@include clearList();
+
+	.item-wrapper {
+		max-width: 380px;
+		margin: 0 auto;
+	}
+
+	.category {
+		display: flex;
+	}
+}

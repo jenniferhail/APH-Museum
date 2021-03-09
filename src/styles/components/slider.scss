@@ -1,0 +1,60 @@
+// Required Core Stylesheet
+@import "./node_modules/@glidejs/glide/src/assets/sass/glide.core";
+
+// Optional Theme Stylesheet
+@import "./node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+
+.glide {
+	.slide-counter {
+		display: inline-block;
+		padding: 0.4rem 0;
+		text-align: center;
+		z-index: 1;
+	}
+	.glide__track {
+		transition: height $base-duration $base-timing;
+	}
+	.glide__arrows {
+		@include flex(
+			$justify: space-between,
+			$align: flex-start,
+			$wrap: nowrap
+		);
+	}
+	.glide__arrow--left,
+	.glide__arrow--right {
+		@include clearBtn;
+		padding: 0.4rem 1.2rem;
+
+		font-weight: 600;
+		transition: all $base-duration $base-timing;
+		color: $white;
+		background: $black;
+		font-size: $mobile-font-size;
+		z-index: 2;
+
+		@include tablet-portrait-up {
+			font-size: $tablet-font-size; // tablet font size
+		}
+		@include tablet-landscape-up {
+			font-size: $desktop-font-size; // desktop font size
+
+			color: $black;
+			background: $transparent;
+			text-decoration: underline;
+		}
+		@include desktop-up {
+			font-size: $base-font-size; // base or large font size
+		}
+
+		&:hover,
+		&:focus {
+			color: $white;
+			background: $black;
+		}
+	}
+	img {
+		display: block;
+		width: 100%;
+	}
+}

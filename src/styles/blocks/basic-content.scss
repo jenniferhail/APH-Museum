@@ -1,0 +1,38 @@
+.block.basic-content {
+	&.left-align {
+		text-align: left;
+	}
+	&.center-align {
+		text-align: center;
+	}
+
+	&.right-align {
+		text-align: right;
+	}
+	&.style-1 {
+		// The slim style
+		.row {
+			max-width: 800px;
+			margin: 0 auto;
+		}
+	}
+	&.style-2 {
+		.wrapper {
+			@include tablet-landscape-up {
+				max-width: $percentage;
+				padding: 0;
+			}
+		}
+		.row {
+			@include tablet-landscape-up {
+				@include flex($wrap: nowrap, $align: flex-start);
+				margin: 0 -2rem;
+			}
+			.col {
+				@include tablet-landscape-up {
+					margin: 0 2rem;
+				}
+			}
+		}
+	}
+}

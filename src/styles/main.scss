@@ -1,0 +1,11 @@
+@import "./mixins/base";
+@import "./global/base";
+@import "./carbon/globals/scss/styles.scss";
+@import "./partials/base";
+@import "./blocks/base";
+@import "./components/base";
+@import "./pages/base";
+
+.carbon-component {
+	margin-bottom: 300px;
+}

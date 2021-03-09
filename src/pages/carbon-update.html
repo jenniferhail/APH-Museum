@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Update</title>
+    <script src="https://kit.fontawesome.com/15caa5e93e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css">
+</head>
+
+<body>
+    <div id="app">
+        <%= require('html-loader!../components/notification.html') %>
+            <%= require('html-loader!../components/header.html') %>
+                <h1 class="h3">I'm using this page to update my original markup to carbon design. - Jen</h1>
+                <div class="carbon-component">
+                    <%= require('html-loader!../blocks/accordions.html') %>
+                </div>
+                <div class="carbon-component">
+                    <%= require('html-loader!../components/button.html') %>
+                </div>
+                <div class="carbon-component">
+                    <%= require('html-loader!../blocks/table.html') %>
+                </div>
+                <%= require('html-loader!../components/cookie-notice.html') %>
+    </div>
+    <!-- <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+// Breakpoints
+@mixin mobile-only {
+	@media (max-width: 599px) {
+		@content;
+	}
+}
+@mixin tablet-portrait-up {
+	@media (min-width: 600px) {
+		@content;
+	}
+}
+@mixin tablet-landscape-up {
+	@media (min-width: 900px) {
+		@content;
+	}
+}
+@mixin desktop-up {
+	@media (min-width: 1200px) {
+		@content;
+	}
+}
+@mixin big-desktop-up {
+	@media (min-width: 1800px) {
+		@content;
+	}
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap");
+
+// Paths
+$img-path: "../../static/";
+
+// Typography
+$sans-serif: "Inter", sans-serif;
+
+$base-font-family: "Inter";
+$heading-font-family: "Inter";
+
+// Font Size
+$base-font-size: 25px;
+$desktop-font-size: 22px;
+$tablet-font-size: 20px;
+$mobile-font-size: 18px;
+
+// Line Height
+$base-line-height: 1.74;
+$heading-line-height: 1.2;
+
+// Font Weight
+$base-font-weight: 400;
+$heading-font-weight: 700;
+$bold: bold;
+
+// Other Sizes
+$site-width: 1800px;
+$percentage: 85%;
+$bottom-margin: 100px;
+$base-border-radius: 0px;
+$base-spacing: 1.5em;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
+
+// Colors
+$pink: #d6315b;
+$red: #ff1919;
+$teal: #6ecfb9;
+$yellow: #f4c254;
+$dark-gray: #333;
+$medium-gray: #999;
+$light-gray: #ddd;
+$black: #000000;
+$white: #ffffff;
+$transparent: rgba(255, 255, 255, 0);
+
+$primary: $black;
+$secondary: $yellow;
+$links: $primary;
+$hover: $secondary;
+
+// Font Colors
+$base-font-color: #000;
+$action-color: $primary;
+$error-color: $red;
+
+$base-font-color: $black;
+$color-selection: $light-gray;
+
+// Buttons
+$btn-bg-color: $transparent;
+$btn-text-color: $black;
+$btn-text-color-hover: $white;
+$btn-border-radius: 0;
+
+// Border
+$base-border-color: $black;
+$base-border: 3px solid $base-border-color;
+
+// Background Colors
+$viewport-background-color: $white;
+
+// Focus
+$focus-outline-color: $black;
+$focus-outline-width: 3px;
+$focus-outline: $focus-outline-width solid $focus-outline-color;
+$focus-outline-offset: 10px;
+
+// Transitions
+$base-duration: 300ms;
+$base-timing: ease-in-out;

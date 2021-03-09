@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Styleguide</title>
+	<script src="https://kit.fontawesome.com/15caa5e93e.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<div id="app">
+		<%= require('html-loader!../components/header.html') %>
+
+		<section class="block single record">
+			<div class="wrapper">
+				<article class="article">
+					<div class="text">
+						<div class="meta">
+							<h1 class="title h1">
+								Single Record, with a long title that can
+								wrap to two lines.
+							</h1>
+						</div>
+					</div>
+					<div class="content-wrapper">
+						<div class="content-inner">
+							<div class="text">
+								<div class="meta">
+									<p class="category">
+										<a href="#">Category</a>,
+										<a href="#">Category</a>,
+										<a href="#">Category</a>
+									</p>
+								</div>
+								<div class="content">
+									<p class="item">
+										<span class="label">
+											Label:
+										</span>
+										Aenean eu leo quam. Pellentesque
+										ornare sem lacinia quam venenatis
+										vestibulum. Nullam id dolor id nibh
+										ultricies vehicula ut id elit.
+									</p>
+									<p class="item">
+										<span class="label">
+											Label:
+										</span>
+										Aenean eu leo quam. Pellentesque
+										ornare sem lacinia quam venenatis
+										vestibulum. Nullam id dolor id nibh
+										ultricies vehicula ut id elit.
+									</p>
+									<p class="item">
+										<span class="label">
+											Label:
+										</span>
+										Aenean eu leo quam. Pellentesque
+										ornare sem lacinia quam venenatis
+										vestibulum. Nullam id dolor id nibh
+										ultricies vehicula ut id elit.
+									</p>
+									<p class="item">
+										<span class="label">
+											Label:
+										</span>
+										Aenean eu leo quam. Pellentesque
+										ornare sem lacinia quam venenatis
+										vestibulum. Nullam id dolor id nibh
+										ultricies vehicula ut id elit.
+									</p>
+									<div class="buttons">
+										<a href="#" class="btn prev">
+											Back to the collection
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="image">
+								<img src="https://via.placeholder.com/1000x600" alt="Image description" />
+							</div>
+						</div>
+					</div>
+				</article>
+			</div>
+		</section>
+		
+		<section class="block single post">
+			<div class="wrapper">
+				<article class="article">
+					<div class="image-wrapper">
+						<div class="image" style="background-image: url('https://via.placeholder.com/1000x600')">
+							<img class="visually-hidden" src="https://via.placeholder.com/1000x600"
+								alt="Image description" />
+						</div>
+					</div>
+					<div class="text">
+						<div class="meta">
+							<h1 class="title h3">
+								Blog Article Title Goes Here
+							</h1>
+							<p class="date">Saturday, June 27, 2020</p>
+							<p class="category">Category</p>
+							<p class="author">Author Name Here</p>
+						</div>
+						<div class="content">
+							<p>
+								Duis mollis, est non commodo luctus, nisi
+								erat porttitor ligula, eget lacinia odio sem
+								nec elit. Etiam porta sem malesuada magna
+								mollis euismod.
+							</p>
+							<p>
+								Nulla vitae elit libero, a pharetra augue.
+								Aenean eu leo quam. Pellentesque ornare sem
+								lacinia quam venenatis vestibulum. Vivamus
+								sagittis lacus vel augue laoreet rutrum
+								faucibus dolor auctor. Morbi leo risus,
+								porta ac consectetur ac, vestibulum at eros.
+								Donec ullamcorper nulla non metus auctor
+								fringilla.
+							</p>
+							<p>
+								Sed posuere consectetur est at lobortis.
+								Maecenas sed diam eget risus varius blandit
+								sit amet non magna. Aenean eu leo quam.
+								Pellentesque ornare sem lacinia quam
+								venenatis vestibulum. Nullam id dolor id
+								nibh ultricies vehicula ut id elit. Morbi
+								leo risus, porta ac consectetur ac,
+								vestibulum at eros. Donec ullamcorper nulla
+								non metus auctor fringilla.
+							</p>
+						</div>
+					</div>
+				</article>
+			</div>
+		</section>
+		
+		<section class="block single event">
+			<div class="wrapper">
+				<article class="article">
+					<div class="image-wrapper">
+						<div class="image" style="url('https://via.placeholder.com/1000x600')">
+							<img class="visually-hidden" src="https://via.placeholder.com/1000x600"
+								alt="Image description" />
+						</div>
+					</div>
+		
+					<div class="text">
+						<div class="meta">
+							<h1 class="title h3">
+								Blog Article Title Goes Here
+							</h1>
+							<p class="date">
+								<time dateTime="2020-06-27">
+									Saturday, June 27, 2020
+								</time>
+								<time dateTime="10:00">10:00 AM</time>
+							</p>
+							<p class="category">Category</p>
+							<p class="location">Location</p>
+							<p class="audience">Audience</p>
+						</div>
+						<div class="content">
+							<p>
+								Duis mollis, est non commodo luctus, nisi
+								erat porttitor ligula, eget lacinia odio sem
+								nec elit. Etiam porta sem malesuada magna
+								mollis euismod.
+							</p>
+							<div class="buttons">
+								<a href="#" class="btn">
+									Button
+								</a>
+							</div>
+						</div>
+						<Share />
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<%= require('html-loader!../components/footer.html') %>
+		
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</body>
+
+</html>

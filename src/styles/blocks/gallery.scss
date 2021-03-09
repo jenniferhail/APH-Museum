@@ -1,0 +1,30 @@
+.block.gallery {
+	.wrapper {
+		max-width: $percentage;
+		padding: 0;
+		@include tablet-landscape-up {
+			padding: 0 1.2rem;
+		}
+	}
+	.row {
+		@include tablet-landscape-up {
+			@include flex($align: flex-start);
+		}
+	}
+	.col.content {
+		padding: 0 2rem 2rem;
+		@include tablet-landscape-up {
+			flex: 1 0 60%;
+			max-width: 60%;
+			padding: 0 2.4rem 0 0;
+		}
+	}
+	.col.image {
+		position: relative;
+		@include tablet-landscape-up {
+			flex: 1 0 40%;
+			max-width: 40%;
+		}
+		@include lightbox();
+	}
+}

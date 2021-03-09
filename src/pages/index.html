@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Styleguide</title>
+	<script src="https://kit.fontawesome.com/15caa5e93e.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css">
+</head>
+
+<body>
+	<div id="app">
+		<%= require('html-loader!../components/notification.html') %>
+
+			<%= require('html-loader!../components/header.html') %>
+
+				<%= require('html-loader!../components/cookie-notice.html') %>
+
+					<%= require('html-loader!../components/large-title.html') %>
+
+						<%= require('html-loader!../blocks/hero.html') %>
+
+							<%= require('html-loader!../blocks/accordions.html') %>
+
+								<%= require('html-loader!../blocks/cards.html') %>
+
+									<%= require('html-loader!../blocks/video.html') %>
+
+										<%= require('html-loader!../blocks/basic-content.html') %>
+
+											<%= require('html-loader!../blocks/table.html') %>
+
+												<%= require('html-loader!../blocks/listing.html') %>
+
+													<%= require('html-loader!../blocks/exhibit.html') %>
+
+														<%= require('html-loader!../blocks/gallery.html') %>
+
+															<%= require('html-loader!../blocks/timeline.html') %>
+
+																<%= require('html-loader!../components/share.html') %>
+
+																	<%= require('html-loader!../components/load-more.html')
+																		%>
+
+																		<%= require('html-loader!../components/footer.html')
+																			%>
+	</div>
+	<!-- <script src="https://unpkg.com/carbon-components/scripts/carbon-components.min.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+.component.notification,
+.component.cookie-notice {
+	max-width: none;
+	margin: 0;
+	border: none;
+	align-items: center;
+	.row {
+		padding: 0.4rem 0;
+	}
+	&.hide {
+		display: none;
+	}
+	.toggle-wrapper {
+		display: block;
+	}
+	button {
+		@include clearBtn;
+	}
+	h2 {
+		margin: 0;
+		font-family: $base-font-family;
+	}
+	h2,
+	p,
+	a,
+	button {
+		display: inline;
+		font-size: 0.88rem;
+		line-height: 1;
+	}
+	a {
+		text-decoration: underline;
+	}
+	button {
+		text-decoration: underline;
+	}
+	.bx--inline-notification {
+		align-items: flex-start;
+	}
+	.bx--inline-notification__text-wrapper {
+		display: block;
+	}
+	.bx--inline-notification__close-button {
+		display: flex;
+		height: 1.92rem;
+		width: 1.92rem;
+		margin-right: 0.5rem;
+		&:focus {
+			outline-offset: 0;
+		}
+	}
+	.bx--inline-notification__action-button {
+		height: auto;
+		margin: 0;
+		padding: 0;
+	}
+	.bx--inline-notification__action-button,
+	.bx--inline-notification__close-button {
+		transition: none;
+	}
+}
+
+.component.notification {
+	position: relative;
+	color: $base-font-color;
+	background: $secondary;
+	.wrapper {
+		padding: 0 2.4rem;
+	}
+	.bx--inline-notification__close-button
+		.bx--inline-notification__close-icon {
+		fill: $black;
+	}
+	.bx--inline-notification__action-button {
+		&:focus {
+			outline-color: $black;
+		}
+	}
+	.bx--inline-notification__subtitle {
+		margin: 0;
+	}
+}
+
+.component.cookie-notice {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+
+	color: $white;
+	background: $black;
+	z-index: 10;
+	button,
+	a {
+		color: $white;
+	}
+	.bx--inline-notification__close-button {
+		&:focus {
+			outline-color: $white;
+		}
+	}
+}

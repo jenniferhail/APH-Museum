@@ -1,0 +1,70 @@
+.footer {
+	padding: 2rem 0;
+	background-color: $black;
+	color: $white;
+	.wrapper {
+		position: relative;
+		@include tablet-landscape-up {
+			@include flex($justify: space-between, $align: flex-start);
+		}
+	}
+	.logo-div {
+		.logo-link {
+			@include desktop-up {
+				display: block;
+				position: absolute;
+				left: auto;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+			&:focus {
+				outline: 3px solid $white;
+			}
+		}
+		.logo-site {
+			margin: 0 auto;
+		}
+	}
+	.footer-nav {
+		@include clearList();
+		.footer-menu {
+			@include flex();
+		}
+		.menu-item {
+			margin: 0 0.6rem;
+			a {
+				color: $white;
+				font-weight: $bold;
+				text-decoration: underline $transparent;
+				transition: all $base-duration $base-timing;
+				&:hover,
+				&:focus {
+					color: $yellow;
+					text-decoration: underline;
+				}
+				&:focus {
+					outline: 3px solid;
+				}
+			}
+		}
+	}
+	.content {
+		@include flex; // Align center for mobile
+
+		@include tablet-landscape-up {
+			flex: 1 0 100%;
+			@include flex($justify: flex-end); // Align right for tablet & up
+		}
+		span {
+			padding-right: 0.6rem; // 15px
+			font-size: 0.76rem; // 19px desktop
+		}
+		a:focus {
+			outline: 3px solid $white;
+		}
+	}
+	.footer-nav,
+	.content {
+		padding-top: 0.8rem; // 20px
+	}
+}

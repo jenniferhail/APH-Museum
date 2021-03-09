@@ -1,0 +1,49 @@
+# Using a Node JS docker image to run build and deployment commands
+image: node:14.15.0
+
+pipelines:
+    branches:
+        master:
+            - step:
+                  name: "Webpack Build" # Installing dependencies and generating static files
+                  caches:
+                      - node # This should help reduce build time by cachinge dependancies
+                  script:
+                      - npm install
+                      - npm run build
+                  artifacts: # Defining the artifacts to be passed to each future step.
+                      - dist/**
+            - step:
+                  name: Deploy to Production
+                  deployment: production
+                  script:
+                      - pipe: atlassian/rsync-deploy:0.4.4
+                        variables:
+                            USER: $USER
+                            SERVER: $SERVER
+                            REMOTE_PATH: "/var/www/vhosts/$USER.org/httpdocs/production/web/app/themes/mightily/"
+                            LOCAL_PATH: "./"
+                            DEBUG: "false"
+                            EXTRA_ARGS: "--exclude=.* --exclude=src/ --exclude=gatsby-browser.js --exclude=bitbucket-pipelines.yml --exclude=gatsby-config.js --exclude=LICENSE --exclude=package-lock.json --exclude=package.json --exclude=README.md --exclude=static/ --exclude=webpack.config.js/"
+        staging:
+            - step:
+                  name: "Webpack Build" # Installing dependencies and generating static files
+                  caches:
+                      - node # This should help reduce build time by cachinge dependancies
+                  script:
+                      - npm install
+                      - npm run build
+                  artifacts: # Defining the artifacts to be passed to each future step.
+                      - dist/**
+            - step:
+                  name: Deploy to Staging
+                  deployment: staging
+                  script:
+                      - pipe: atlassian/rsync-deploy:0.4.4
+                        variables:
+                            USER: $USER
+                            SERVER: $SERVER
+                            REMOTE_PATH: "/var/www/vhosts/$USER.org/httpdocs/staging/web/app/themes/mightily/"
+                            LOCAL_PATH: "./"
+                            DEBUG: "false"
+                            EXTRA_ARGS: "--exclude=.* --exclude=src/ --exclude=gatsby-browser.js --exclude=bitbucket-pipelines.yml --exclude=gatsby-config.js --exclude=LICENSE --exclude=package-lock.json --exclude=package.json --exclude=README.md --exclude=static/ --exclude=webpack.config.js/"

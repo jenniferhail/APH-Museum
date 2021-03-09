@@ -1,0 +1,161 @@
+// The buttn has been updated to Carbon Design's button.
+// The pre-Carbon styles need to stay.
+
+// Global Button Styles
+button {
+	cursor: pointer;
+}
+
+#{$all-buttons} {
+	&:focus {
+		outline: $focus-outline;
+		outline-offset: $focus-outline-offset;
+	}
+}
+
+@mixin btn-base() {
+	position: relative;
+	display: inline-block;
+	padding: 3px 8px 3px 0;
+
+	font-family: $sans-serif;
+	font-size: $mobile-font-size;
+	-webkit-font-smoothing: antialiased;
+	font-weight: 600;
+	line-height: 1.4;
+	text-decoration: underline;
+
+	color: $btn-text-color;
+	background-color: $btn-bg-color;
+	border: none;
+	border-radius: $btn-border-radius;
+
+	transition: all $base-duration $base-timing;
+	user-select: none;
+	vertical-align: middle;
+	appearance: none;
+	box-sizing: content-box;
+	cursor: pointer;
+
+	@include tablet-portrait-up {
+		font-size: $tablet-font-size; // tablet font size
+	}
+	@include tablet-landscape-up {
+		font-size: $desktop-font-size; // desktop font size
+	}
+	@include desktop-up {
+		font-size: $base-font-size; // base or large font size
+	}
+
+	// Background
+	// background-image: linear-gradient(to bottom, $white 0%, $black 100%);
+	// @include link-underline($transparent, $black, $black, $yellow, $size: 1px);
+	// border-bottom: $base-border;
+
+	&:not(.prev):before {
+		content: "";
+		display: inline-block;
+		width: calc(100% - 38px);
+		height: 100%;
+		background-color: $black;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		opacity: 0;
+		transition: all $base-duration $base-timing;
+	}
+
+	&:not(.prev):after {
+		content: "";
+		display: inline-block;
+		width: 28px;
+		height: 15px;
+		margin-left: 10px;
+		background-image: url($img-path + "arrow-right.svg");
+		background-repeat: no-repeat;
+		background-position: center;
+		transition: all $base-duration $base-timing;
+		transform: translateX(0);
+	}
+	&.prev {
+		&:after {
+			content: "";
+			display: inline-block;
+			width: calc(100% - 38px);
+			height: 100%;
+			background-color: $black;
+			position: absolute;
+			top: 0;
+			right: 0;
+			z-index: -1;
+			opacity: 0;
+			transition: all $base-duration $base-timing;
+		}
+		&:before {
+			content: "";
+			display: inline-block;
+			width: 28px;
+			height: 15px;
+			margin-right: 10px;
+			background-image: url($img-path + "arrow-left.svg");
+			background-repeat: no-repeat;
+			background-position: center;
+			transition: all $base-duration $base-timing;
+			transform: translateX(0);
+		}
+	}
+	&.prev,
+	&.next {
+		text-decoration: none;
+	}
+	&:hover {
+		// background-color: $btn-text-color;
+		color: $btn-text-color-hover;
+		&:before,
+		&.prev:after {
+			opacity: 1;
+		}
+		&:not(.prev):after {
+			transform: translateX(10px);
+		}
+		&.prev:before {
+			transform: translateX(-10px);
+		}
+	}
+	&:focus {
+		outline: $focus-outline;
+		outline-offset: 3px;
+	}
+	&:disabled {
+		cursor: not-allowed;
+		opacity: 0.5;
+	}
+}
+
+// Theme Buttons
+.block {
+	// Carbon button class
+	.bx--btn {
+		min-height: auto;
+	}
+	.buttons .btn {
+		@include btn-base();
+	}
+	.buttons {
+		position: relative;
+		padding-top: 1rem;
+		padding-bottom: 5px;
+		z-index: 1;
+
+		margin-left: -1rem;
+		margin-right: -1rem;
+		.btn {
+			margin-left: 1rem;
+			margin-right: 1rem;
+		}
+	}
+	p + .buttons {
+		padding-top: 0; // Top padding for buttons under paragraphs
+	}
+}

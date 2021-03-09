@@ -1,0 +1,206 @@
+$h1-font-size: 4.32rem; // 108px
+$h2-font-size: 3.6rem; // 90px
+$h3-font-size: 2rem; // 50px
+$h4-font-size: 1.32rem; // 33px
+$h5-font-size: 1rem; // 25px
+$h6-font-size: 0.9rem; // 20px
+
+$headings: "h1" 4.32rem 1.92rem 2.04rem 1.2, "h2" 3.6rem 1.92rem 2.32rem 1.2,
+	"h3" 2rem 1.4rem 1.32rem 1.2, "h4" 1.32rem 0.96rem 1.32rem 1.2,
+	"h5" 1rem 0.64rem 0.92rem 1.3, "h6" 0.9rem 0.8rem 0.7rem 1.5;
+
+@each $heading, $desktop-size, $tablet-size, $mobile-size,
+	$line-height in $headings
+{
+	#{$heading},
+	.#{$heading} {
+		font-size: $mobile-size; // mobile font size
+		line-height: $heading-line-height;
+		font-family: $heading-font-family;
+		font-weight: $heading-font-weight;
+		margin-top: 0;
+		margin-right: 0;
+		margin-bottom: 1rem;
+		margin-left: 0;
+		@include tablet-portrait-up {
+			font-size: $tablet-size; // tablet font size
+		}
+		@include tablet-landscape-up {
+			font-size: $desktop-size; // desktop font size
+		}
+	}
+}
+
+@mixin link-style() {
+	font-family: $base-font-family;
+	letter-spacing: 0.155em;
+	text-transform: uppercase;
+	font-weight: $bold;
+}
+
+html,
+.p {
+	color: $base-font-color;
+	font-family: $base-font-family;
+	font-weight: $base-font-weight;
+	line-height: $base-line-height; // desktop line height
+	font-size: $mobile-font-size; // mobile font size
+	-webkit-font-smoothing: antialiased;
+	@include tablet-portrait-up {
+		font-size: $tablet-font-size; // tablet font size
+	}
+	@include tablet-landscape-up {
+		font-size: $desktop-font-size; // desktop font size
+	}
+	@include desktop-up {
+		font-size: $base-font-size; // base or large font size
+	}
+}
+
+p {
+	margin-top: 0;
+	margin-bottom: 20px;
+	a {
+		color: $red;
+		text-decoration: underline;
+	}
+}
+
+a {
+	color: $action-color;
+	text-decoration-skip: auto;
+	text-decoration: none;
+	// transition: all $base-duration $base-timing;
+	&:focus {
+		outline: $focus-outline;
+		outline-offset: $focus-outline-offset;
+	}
+}
+
+hr {
+	border-bottom: $base-border;
+	border-left: 0;
+	border-right: 0;
+	border-top: 0;
+	margin: $base-spacing 0;
+}
+
+blockquote {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	font-weight: $bold;
+	& > * {
+		position: relative;
+		z-index: 2;
+	}
+	&:after {
+		content: "";
+		display: block;
+		width: calc(100% + 2rem);
+		height: calc(100% + 20px);
+		position: absolute;
+		top: -10px;
+		left: -1rem;
+		right: -1rem;
+		bottom: -10px;
+		z-index: 1;
+		background-color: $yellow;
+	}
+}
+
+.block.basic-content.style-2 {
+	overflow: hidden;
+	.col:only-child {
+		blockquote:after {
+			@include tablet-landscape-up {
+				width: calc(100% + 20% + 2.4rem);
+				left: calc(-10% - 1.2rem);
+				right: calc(-10% - 1.2rem);
+			}
+		}
+	}
+}
+
+// This happens in Hero Style 5 & the Exhibit
+// Will be built out to happen on all interior page titles
+@mixin underline() {
+	text-shadow: 0.03em 0 rgba(255, 255, 255, 0),
+		-0.03em 0 rgba(255, 255, 255, 0), 0 0.03em rgba(255, 255, 255, 0),
+		0 -0.03em rgba(255, 255, 255, 0), 0.06em 0 rgba(255, 255, 255, 0),
+		-0.06em 0 rgba(255, 255, 255, 0), 0.09em 0 rgba(255, 255, 255, 0),
+		-0.09em 0 rgba(255, 255, 255, 0), 0.12em 0 rgba(255, 255, 255, 0),
+		-0.12em 0 rgba(255, 255, 255, 0), 0.15em 0 rgba(255, 255, 255, 0),
+		-0.15em 0 rgba(255, 255, 255, 0);
+	background-image: linear-gradient(90deg, $yellow 50%, $transparent 50%);
+	background-size: 200% 10px;
+	background-repeat: no-repeat;
+	display: inline !important;
+	padding-bottom: 3px;
+	// background-position: 100% 100%; // Before animation
+	background-position: 0% 100%; // Animation position
+	.ready & {
+		background-position: 100% 100%;
+		transition: background-position 0ms ease-in-out 0ms;
+	}
+	.animate & {
+		background-position: 0% 100%;
+		transition: background-position 800ms ease-in-out 400ms;
+	}
+}
+// Titles
+.title {
+	// New lines in a title group
+	.line {
+		margin-bottom: 0;
+		line-height: $heading-line-height;
+		@include tablet-landscape-up {
+			display: block;
+		}
+	}
+	// Text colors for lines
+	.white {
+		color: $white;
+	}
+	.yellow {
+		color: $yellow;
+	}
+	.underline {
+		@include underline();
+	}
+}
+
+.component.page-title {
+	margin-bottom: 2rem;
+	.wrapper {
+		// Circle back to add mobile
+		max-width: $percentage;
+		padding: 0;
+	}
+	.title {
+		// @include underline();
+		font-size: 2.6rem; // 65px
+		text-shadow: 0.03em 0 rgba(255, 255, 255, 0),
+			-0.03em 0 rgba(255, 255, 255, 0), 0 0.03em rgba(255, 255, 255, 0),
+			0 -0.03em rgba(255, 255, 255, 0), 0.06em 0 rgba(255, 255, 255, 0),
+			-0.06em 0 rgba(255, 255, 255, 0), 0.09em 0 rgba(255, 255, 255, 0),
+			-0.09em 0 rgba(255, 255, 255, 0), 0.12em 0 rgba(255, 255, 255, 0),
+			-0.12em 0 rgba(255, 255, 255, 0), 0.15em 0 rgba(255, 255, 255, 0),
+			-0.15em 0 rgba(255, 255, 255, 0);
+		background-image: linear-gradient(90deg, $yellow 50%, $transparent 50%);
+		background-size: 200% 10px;
+		background-repeat: no-repeat;
+		display: inline !important;
+		padding-bottom: 3px;
+		// background-position: 100% 100%; // Before animation
+		background-position: 0% 100%; // Animation position
+	}
+	&.ready .title {
+		background-position: 100% 100%;
+		transition: background-position 0ms ease-in-out 0ms;
+	}
+	&.animate .title {
+		background-position: 0% 100%;
+		transition: background-position 800ms ease-in-out 400ms;
+	}
+}

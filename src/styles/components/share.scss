@@ -1,0 +1,68 @@
+.component.share {
+	@include clearList;
+	margin-bottom: 2rem;
+	padding-top: 30px;
+	.wrapper {
+		@include flex($justify: flex-start);
+	}
+	// Button
+	.toggle-share {
+		@include clearBtn;
+		@include flex();
+		margin-right: 1rem;
+		&:after {
+			content: "";
+			background-image: url($img-path + "share.svg");
+			background-color: $black;
+			background-size: 50%;
+			background-repeat: no-repeat;
+			background-position: center;
+			width: 1.8rem;
+			height: 1.8rem;
+			margin-left: 0.6rem;
+			border-radius: 1.8rem;
+			display: inline-block;
+			top: 0;
+			left: 0;
+			z-index: 1;
+		}
+	}
+	.social-menu {
+		display: none;
+	}
+	&.show {
+		.social-menu {
+			display: flex;
+		}
+	}
+}
+
+.social-menu {
+	font-size: 0;
+	.menu-item {
+		display: inline-block;
+		font-size: 0;
+		&:not(:first-child) {
+			margin-left: 10px;
+		}
+	}
+	a {
+		@include flex();
+		position: relative;
+		width: 1.8rem;
+		height: 1.8rem;
+		border-radius: 1.8rem;
+		background-color: $base-font-color;
+		color: $white;
+		font-size: 0;
+		line-height: 1.8rem;
+		transition: all $base-duration $base-timing;
+		&:hover {
+			background-color: $hover;
+		}
+	}
+	svg {
+		width: 0.9rem;
+		height: 0.9rem;
+	}
+}

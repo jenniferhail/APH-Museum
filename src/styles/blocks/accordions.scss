@@ -1,0 +1,153 @@
+// This block has been updated to Carbon Design's accordion.
+// The pre-Carbon styles are still here. I haven't deleted them yet.
+.block.accordions {
+	.wrapper {
+		max-width: $percentage;
+	}
+	details {
+		position: relative;
+		padding: 1rem 0;
+		border-bottom: $base-border;
+		// Removing default accordion arrow
+		& > summary::-webkit-details-marker {
+			display: none;
+		}
+	}
+	.bx--accordion__item {
+		padding: 0;
+		border-top: none;
+		border-bottom: $base-border;
+		&:last-child {
+			border-bottom: $base-border;
+		}
+	}
+	.bx--accordion__heading {
+		padding: 1.2rem 0;
+		&:hover:before,
+		&:focus:before {
+			height: calc(100% + 1px);
+		}
+		&:focus:before {
+			border: $focus-outline;
+		}
+	}
+	.bx--accordion__title,
+	.title {
+		margin: 0;
+		padding: 0;
+		font-size: $base-font-size;
+		font-weight: bold;
+		cursor: pointer;
+		list-style-type: none;
+		&:focus {
+			outline: 3px solid $black;
+			outline-offset: 5px;
+		}
+	}
+	.bx--accordion__item--active .bx--accordion__content {
+		padding: 0.5rem 0 1rem;
+	}
+	.bx--accordion__content {
+		p {
+			font-size: inherit;
+			font-weight: inherit;
+			line-height: inherit;
+			letter-spacing: inherit;
+		}
+	}
+	.content {
+		> *:last-child {
+			margin-bottom: 0;
+		}
+	}
+	.bx--accordion__arrow {
+		margin-right: 0;
+		transform: none;
+		svg {
+			display: none;
+		}
+	}
+	&.style-1 {
+		.title {
+			position: relative;
+			padding-right: 3rem;
+			&:before {
+				position: absolute;
+				right: 12px;
+				top: 8px;
+				content: "";
+				width: 3px;
+				height: 24px;
+				background: $black;
+				transform: translateX(50%);
+				transition: transform $base-duration $base-timing;
+			}
+			&:after {
+				position: absolute;
+				right: 0;
+				top: 20px;
+				content: "";
+				width: 24px;
+				height: 3px;
+				background: $black;
+				transform: translateY(-50%);
+			}
+		}
+		.item.open {
+			.title:before {
+				transform: translateX(50%) rotate(90deg);
+			}
+		}
+		.bx--accordion__item--active {
+			.bx--accordion__arrow:before {
+				transform: translate(50%, -50%) rotate(90deg);
+			}
+		}
+		.bx--accordion__arrow {
+			width: 24px;
+			height: 24px;
+			&:before {
+				position: absolute;
+				right: 12px;
+				top: 50%; // 8px
+				content: "";
+				width: 3px;
+				height: 24px;
+				background: $black;
+				transform: translate(50%, -50%);
+				transition: transform $base-duration $base-timing;
+			}
+			&:after {
+				position: absolute;
+				right: 0;
+				top: 50%; // 20px
+				content: "";
+				width: 24px;
+				height: 3px;
+				background: $black;
+				transform: translate(0, -50%);
+			}
+			svg {
+				display: none;
+			}
+		}
+	}
+
+	&.style-2 {
+		.title {
+			padding-right: 6rem;
+			&:after {
+				content: "Answer";
+				position: absolute;
+				right: 0;
+				top: 1rem;
+			}
+		}
+		.bx--accordion__arrow {
+			width: auto;
+			height: auto;
+			position: relative;
+			font-weight: bold;
+		}
+	}
+}

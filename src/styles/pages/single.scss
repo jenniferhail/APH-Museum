@@ -1,0 +1,192 @@
+.related-title {
+	margin-bottom: 2rem;
+}
+
+.block.single {
+	padding-top: 2rem;
+	@include mobile-only {
+		margin-bottom: 0;
+	}
+
+	.wrapper {
+		padding: 0;
+	}
+	.article {
+		@include flex();
+		position: relative;
+		padding-top: 2rem;
+		@include tablet-portrait-up {
+			display: block;
+			@include clearfix;
+		}
+	}
+	.meta {
+		font-size: 0.8rem;
+		.title:before {
+			content: "";
+			position: absolute;
+			top: 0;
+			display: block;
+			width: 18rem;
+			height: 6px;
+			margin-bottom: 1.6rem;
+			background-color: $black;
+		}
+		time + time {
+			&:before {
+				content: "";
+				display: inline-block;
+				width: 0.24rem;
+				height: 0.24rem;
+				margin: 0 0.6rem;
+				background-color: $black;
+				border-radius: 0.3rem;
+				transform: translateY(-50%);
+			}
+		}
+		.category a {
+			color: $base-font-color;
+			text-decoration: underline;
+		}
+		.date,
+		.title {
+			margin-bottom: 1.2rem;
+		}
+		p {
+			margin-bottom: 0;
+		}
+	}
+
+	&.record {
+		.content {
+			padding-top: 20px;
+		}
+		.title {
+			&:before {
+				content: none;
+			}
+		}
+		// Also happening in Hero Style 5
+		.title {
+			text-shadow: 0.03em 0 rgba(255, 255, 255, 0),
+				-0.03em 0 rgba(255, 255, 255, 0),
+				0 0.03em rgba(255, 255, 255, 0),
+				0 -0.03em rgba(255, 255, 255, 0),
+				0.06em 0 rgba(255, 255, 255, 0),
+				-0.06em 0 rgba(255, 255, 255, 0),
+				0.09em 0 rgba(255, 255, 255, 0),
+				-0.09em 0 rgba(255, 255, 255, 0),
+				0.12em 0 rgba(255, 255, 255, 0),
+				-0.12em 0 rgba(255, 255, 255, 0),
+				0.15em 0 rgba(255, 255, 255, 0),
+				-0.15em 0 rgba(255, 255, 255, 0);
+			background-image: linear-gradient(90deg, $yellow 50%, $white 50%);
+			background-size: 200% 10px;
+			background-repeat: no-repeat;
+			display: inline;
+			padding-bottom: 3px;
+			// background-position: 100% 100%; // Before animation
+			background-position: 0% 100%; // Animation position
+			transition: background-position 800ms ease-in-out 400ms;
+		}
+		&.animate .underline {
+			background-position: 0% 100%;
+		}
+
+		.content-wrapper {
+			position: relative;
+			.content-inner {
+				display: flex;
+				flex-wrap: wrap;
+				@include tablet-landscape-up {
+					display: block;
+				}
+			}
+			.text {
+				order: 2;
+				max-width: 100%;
+				flex: 1 0 100%;
+
+				@include tablet-landscape-up {
+					width: 55%;
+					padding-right: 3rem;
+				}
+			}
+
+			.image {
+				order: 1;
+				max-width: 100%;
+				flex: 1 0 100%;
+				margin-bottom: 2rem;
+				@include tablet-landscape-up {
+					position: absolute;
+					top: 0;
+					right: 0;
+					width: 45%;
+				}
+
+				img {
+					display: block;
+				}
+			}
+			.label {
+				font-weight: bold;
+			}
+			.buttons {
+				margin-bottom: 2rem;
+			}
+		}
+
+		.article > .text {
+			margin-bottom: 2.6rem;
+		}
+		.article > .text,
+		.content-inner {
+			padding: 0 2rem;
+			@include tablet-landscape-up {
+				width: $percentage;
+				margin-left: auto;
+				margin-right: auto;
+				padding: 0 1.2rem;
+			}
+		}
+	}
+
+	&.post,
+	&.event {
+		.text {
+			width: 100%;
+			margin: 0 auto;
+			order: 1;
+			flex: 1 0 100%;
+			padding: 0 2rem;
+			@include tablet-landscape-up {
+				width: $percentage;
+				padding: 0 1.2rem;
+			}
+			.content {
+				padding-top: 1.6rem;
+			}
+		}
+		.image-wrapper {
+			width: 100%;
+			order: 2;
+			flex: 1 0 100%;
+			padding-top: 2rem;
+			@include tablet-portrait-up {
+				width: 40%;
+				float: right;
+				padding-top: 0;
+				padding-left: 1rem;
+				padding-bottom: 1rem;
+			}
+			.image {
+				@include image_cover();
+				@include aspect-ratio(1, 1);
+				img {
+					display: block;
+				}
+			}
+		}
+	}
+}

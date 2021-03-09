@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Styleguide</title>
+	<script src="https://kit.fontawesome.com/15caa5e93e.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.10.0/css/lightgallery.min.css">
+</head>
+
+<body>
+	<div id="app">
+
+		<%= require('html-loader!../components/header.html') %>
+
+			<main id="main">
+
+				<%= require('html-loader!../components/large-title.html') %>
+
+					<section class="block hero style-1 content-left">
+						<div class="wrapper">
+							<div class="row">
+								<div class="titles">
+									<div class="title-wrapper">
+										<div class="inner">
+											<h1 class="label square-pink">
+												<span class="span">Online Exhibit</span>
+											</h1>
+											<h2 class="title">
+												<span class="h3 line black">
+													Lorem ipsum dolor
+												</span>
+											</h2>
+										</div>
+									</div>
+								</div>
+								<div class="content">
+									<div class="content-wrapper">
+										<div class="inner">
+											Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur purus sit
+											amet fermentum.
+										</div>
+									</div>
+
+								</div>
+								<div class="image-wrapper">
+									<div class="image"
+										style="background-image: url('https://source.unsplash.com/random')">
+										<img src="https://source.unsplash.com/random" alt="Placeholder image" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section class="block hero style-1 content-right">
+						<div class="wrapper">
+							<div class="row">
+								<div class="titles">
+									<div class="title-wrapper">
+										<div class="inner">
+											<h1 class="label square-pink">
+												<span class="span">Online Exhibit</span>
+											</h1>
+											<h2 class="title">
+												<span class="h3 line black">
+													Lorem ipsum dolor
+												</span>
+											</h2>
+										</div>
+									</div>
+								</div>
+								<div class="content">
+									<div class="content-wrapper">
+										<div class="inner">
+											Nulla vitae elit libero, a pharetra augue. Cras mattis consectetur purus sit
+											amet fermentum.
+										</div>
+									</div>
+
+								</div>
+								<div class="image-wrapper">
+									<div class="image"
+										style="background-image: url('https://source.unsplash.com/random')">
+										<img src="https://source.unsplash.com/random" alt="Placeholder image" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section class="block hero style-2 content-left">
+						<div class="wrapper">
+							<div class="row">
+								<div class="titles">
+									<div class="title-wrapper">
+										<div class="inner">
+											<h1 class="label pink">
+												Label Text
+											</h1>
+											<h2 class="title">
+												<span class="h4 line yellow">
+													Lorem ipsum dolor
+												</span>
+											</h2>
+										</div>
+									</div>
+								</div>
+								<div class="content">
+									<div class="content-wrapper">
+										<div class="inner">
+											<p>
+												Lorem ipsum dolor sit amet, consectetur
+												adipiscing elit, sed do eiusmod tempor
+												incididunt ut labore et dolore magna aliqua. Ut
+												enim ad minim veniam, quis nostrud exercitation
+												ullamco laboris nisi ut aliquip ex ea commodo
+												consequat.
+											</p>
+											<div class="buttons">
+												<a href="#" class="btn">
+													Learn more about stuff
+												</a>
+												<a href="#" class="btn">
+													Button
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="image-wrapper">
+									<div class="image"
+										style="background-image: url('https://source.unsplash.com/random')">
+										<img src="https://source.unsplash.com/random" alt="Placeholder image" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+					<section class="block hero style-3">
+						<div class="wrapper">
+							<div class="row">
+								<div class="col">
+									<div class="image-wrapper">
+										<div v-for="index in 4" :key="index" class="image"
+											style="background-image: url('https://source.unsplash.com/random');">
+											<img src="https://source.unsplash.com/random" alt="Placeholder image" />
+										</div>
+									</div>
+									<div class="content">
+										<h2 class="title">
+											<span class="h3 line black">
+												Lorem ipsum dolor
+											</span>
+											<span class="h2 line black">
+												Lorem ipsum dolor
+											</span>
+										</h2>
+										<p>
+											Lorem ipsum dolor sit amet, consectetur
+											adipiscing elit, sed do eiusmod tempor
+											incididunt ut labore et dolore magna aliqua. Ut
+											enim ad minim veniam, quis nostrud exercitation
+											ullamco laboris nisi ut aliquip ex ea commodo
+											consequat.
+										</p>
+										<div class="buttons">
+											<a href="#" class="btn">
+												Button
+											</a>
+											<a href="#" class="btn">
+												Button
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+			</main>
+
+			<%= require('html-loader!../components/footer.html') %>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
+</body>
+
+</html>

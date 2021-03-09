@@ -1,0 +1,91 @@
+.block.timeline {
+	.wrapper {
+		max-width: 85%;
+	}
+	.item {
+		@include tablet-landscape-up {
+			@include flex($justify: flex-start, $align: stretch);
+		}
+	}
+	.col {
+		@include tablet-landscape-up {
+			flex: 1 0 50%;
+			max-width: 50%;
+		}
+	}
+	.col.content {
+		position: relative;
+		padding-bottom: 2rem;
+		&:after {
+			@include tablet-landscape-up {
+				content: "";
+				width: 3px;
+				height: 100%;
+				display: block;
+				position: absolute;
+				top: 0;
+				right: 0;
+				background-color: $black;
+			}
+		}
+		.title,
+		.details {
+			@include tablet-landscape-up {
+				padding-right: 2rem;
+			}
+		}
+		.title {
+			margin-bottom: 0.28rem;
+		}
+		.details {
+			*:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+	.col.media {
+		@include tablet-landscape-up {
+			position: relative;
+			padding-left: 2rem;
+		}
+
+		// position: relative;
+		max-width: 400px;
+		padding-top: 14px; // This will change if the position of the title bar changes
+		// Reposition the lightbox down 14px and to the right
+		@include lightbox();
+		&:before {
+			top: 14px;
+			left: 2rem;
+		}
+	}
+
+	.timeline-title,
+	.title {
+		@extend .h5;
+	}
+	.timeline-title {
+		margin-bottom: 0;
+		padding-bottom: 1rem;
+	}
+	.item:not(:first-child) {
+		.timeline-title {
+			padding-top: 1rem;
+		}
+	}
+	.title {
+		position: relative;
+		&:after {
+			@include tablet-landscape-up {
+				content: "";
+				width: 50px;
+				height: 3px;
+				display: block;
+				position: absolute;
+				top: calc(50% - 1.5px);
+				right: 0;
+				background-color: $black;
+			}
+		}
+	}
+}

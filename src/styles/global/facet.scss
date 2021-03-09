@@ -1,0 +1,405 @@
+// General facet styles
+.fieldset.filters {
+	margin-bottom: 2.4rem;
+	.facet-wrap {
+		position: relative;
+		@include flex($justify: flex-start, $align: flex-start, $wrap: nowrap);
+		width: calc((1 / 3 * 100%) - 2.8rem);
+		min-width: 300px;
+		margin-bottom: 0.6rem;
+		padding: 0.4rem 0;
+	}
+	// Styling the facet labels
+	.facet-label {
+		margin: 0 1rem 0 0;
+		font-weight: normal;
+		white-space: nowrap;
+	}
+	.title {
+		text-decoration: underline;
+	}
+	input[type="text"] {
+		margin: 0;
+		padding: 0;
+		border: none;
+		box-shadow: none;
+		font-family: $base-font-family;
+		font-size: $h6-font-size;
+		line-height: 1.5;
+	}
+	.facetwp-facet {
+		margin-bottom: 0;
+		font-size: $h6-font-size;
+		line-height: 1.5;
+	}
+
+	// Date range
+	.facetwp-type-date_range {
+		&.facetwp-facet-end_date {
+			margin-left: 10px;
+		}
+		&:after {
+			content: "";
+			width: 100%;
+			height: 3px;
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			background: $black;
+		}
+	}
+	// Select
+	.facetwp-type-fselect {
+		.fs-dropdown {
+			position: relative;
+			width: auto;
+		}
+		.fs-wrap {
+			display: block;
+		}
+		.fs-label-wrap {
+			width: auto;
+			border: none;
+		}
+		&:after {
+			content: "";
+			width: 100%;
+			height: 3px;
+			display: block;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			background: $black;
+		}
+	}
+	// Checkboxes & Radio buttons
+	.facetwp-checkbox,
+	.facetwp-radio {
+		// Reset
+		margin: 0;
+		padding: 0;
+		background: none;
+		// End reset
+		&:before {
+			content: "";
+			display: inline-block;
+			width: 1rem;
+			height: 1rem;
+			margin-right: 0.6rem;
+			border: 2px solid $black;
+			border-radius: 50%;
+			transform: translateY(0.16rem);
+		}
+		&.checked {
+			font-weight: 400;
+			&:before {
+				background: $black;
+			}
+		}
+	}
+}
+// Search
+.fieldset.search-bar {
+	// Styling the facet labels
+	.facet-label {
+		margin: 0 0 0.6rem;
+		font-weight: normal;
+		white-space: nowrap;
+	}
+	.facetwp-type-search {
+		.facetwp-input-wrap {
+			width: 100%;
+			@include flex($wrap: wrap, $align: flex-start);
+		}
+		.facetwp-icon {
+			right: auto;
+			left: 0;
+			height: 44px;
+			padding-left: 0.4rem;
+		}
+		input.facetwp-search {
+			margin-bottom: 0.6rem;
+			padding-left: 1.8rem;
+			box-shadow: none;
+		}
+		button {
+			@include clearBtn();
+			@include btn-base();
+		}
+		.facetwp-search-submit {
+			margin-left: auto;
+			margin-right: 1rem;
+		}
+	}
+}
+// Load More Btn
+.load-more-btn {
+	margin-bottom: 1rem;
+	text-align: center;
+	.facet-label {
+		display: none;
+	}
+	button {
+		@include clearBtn;
+		@include btn-base();
+		&:not(.prev):after {
+			background-image: url($img-path + "arrow-down.svg");
+			width: 15px;
+			height: 28px;
+			transform: translateY(8px);
+		}
+		&:hover:not(.prev):after {
+			transform: translateY(15px);
+		}
+	}
+}
+
+// // Facet Start/End Date
+// .fieldset .facetwp-type-date_range {
+// 	display: flex;
+// 	justify-content: space-between;
+// 	.flatpickr-alt {
+// 		padding: 4px 6px 5px 0;
+// 		border: none;
+// 		border-bottom: 2px solid;
+// 		font-size: 15px;
+// 		@media (min-width: 400px) {
+// 			max-width: 100px;
+// 		}
+
+// 		&::placeholder {
+// 			color: $black;
+// 		}
+// 		&:last-child {
+// 			margin-left: 15px;
+// 		}
+// 	}
+// }
+
+// // Facet search bar
+// .fieldset.search-field {
+// 	.facet-label {
+// 		@extend .visually-hidden;
+// 	}
+// }
+// .facetwp-facet.facetwp-type-search {
+// 	.facetwp-search-wrap {
+// 		display: flex;
+// 	}
+// 	.facetwp-input-wrap,
+// 	.facetwp-search {
+// 		width: 100%;
+// 	}
+// 	.facetwp-input-wrap {
+// 		text-align: center;
+// 		@media ($tablet) {
+// 			@include flex($align: flex-start);
+// 		}
+// 		// Reset button
+// 		button:last-child {
+// 			height: auto;
+// 			padding: 12px 20px;
+// 			border: none;
+// 			background: transparent;
+// 			color: $green;
+// 			font-weight: 600;
+// 			text-transform: uppercase;
+// 			@media ($tablet) {
+// 				position: absolute;
+// 				bottom: -30px;
+// 				right: 124px;
+// 				padding: 5px 0;
+// 				z-index: 3;
+// 			}
+// 		}
+// 	}
+// 	input.facetwp-search {
+// 		flex: 1 0 0;
+// 		margin-bottom: 15px;
+// 		padding: 5px 30px 5px 15px;
+// 		border-radius: 0;
+// 		border: 3px solid rgba(33, 33, 33, 0.25);
+// 	}
+// 	.facetwp-icon,
+// 	.facetwp-btn {
+// 		display: none;
+// 	}
+// 	input,
+// 	button {
+// 		height: 50px;
+// 	}
+// 	.facetwp-search-submit {
+// 		@include btn-base();
+// 		height: auto;
+// 		margin: 0;
+// 		padding: 14px 20px;
+// 		border: 3px solid $green;
+// 		background-color: $green;
+// 		color: $white;
+// 		@media ($tablet) {
+// 			margin-left: 20px;
+// 		}
+// 		&:hover,
+// 		&:focus {
+// 			background-color: $white;
+// 			color: $green;
+// 		}
+// 	}
+// }
+
+// // Styling the facet dropdowns
+// .fieldset {
+// 	.fs-label-wrap {
+// 		border: none;
+// 		border-bottom: 2px solid $black;
+// 		background-color: $white;
+// 		.fs-label {
+// 			padding-left: 0;
+// 			color: $black;
+// 		}
+// 		.fs-arrow {
+// 			border-top: 5px solid $black;
+// 		}
+// 	}
+// 	.fs-dropdown {
+// 		width: 100%;
+// 		color: $black;
+// 	}
+// }
+
+// // Map - Reverse colors for the Facet dropdowns
+// .block.interactive-map {
+// 	.fs-label-wrap {
+// 		border-bottom: 2px solid $white;
+// 		background-color: $transparent;
+// 		@media ($map-breakpoint) {
+// 			background-color: $black;
+// 		}
+// 		.fs-label {
+// 			color: $white;
+// 		}
+// 		.fs-arrow {
+// 			border-top: 5px solid $white;
+// 		}
+// 	}
+// }
+
+// // Styling the facet ranges
+// .fieldset {
+// 	.facetwp-type-slider {
+// 		padding-top: 20px; // Aligning the ranges with other facets
+// 		.facetwp-slider-label + div {
+// 			display: inline-block;
+// 			margin-left: 15px;
+// 		}
+// 	}
+// 	.noUi-horizontal .noUi-handle {
+// 		width: 15px;
+// 		height: 15px;
+// 		top: -7.5px;
+// 		border-radius: 50%;
+// 	}
+// 	.noUi-horizontal {
+// 		height: 2px;
+// 	}
+// 	.noUi-target {
+// 		border-color: $black;
+// 		&:before,
+// 		&:after {
+// 			content: "";
+// 			width: 2px;
+// 			height: 16px;
+// 			position: absolute;
+// 			top: 0;
+// 			background: $black;
+// 			transform: translateY(-50%);
+// 		}
+// 		&:before {
+// 			left: -1px;
+// 		}
+// 		&::after {
+// 			right: -1px;
+// 		}
+// 	}
+// 	.noUi-connect {
+// 		background: $black;
+// 	}
+// 	.noUi-handle {
+// 		border: none;
+// 		background: $green;
+// 	}
+// 	.facetwp-facet {
+// 		margin-bottom: 30px;
+// 	}
+// 	// Range reset btn
+// 	.facetwp-slider-reset {
+// 		display: block;
+// 		margin-top: 10px;
+// 		padding: 0;
+// 		background: none;
+// 		border: none;
+// 		box-shadow: none;
+// 		font-style: italic;
+// 		font-family: $serif;
+// 		font-size: 15px;
+// 		color: $green;
+// 	}
+// }
+// // Map facet ranges
+// .block.interactive-map {
+// 	.noUi-target {
+// 		border-color: #dddddd;
+// 		&:before,
+// 		&:after {
+// 			background: $white;
+// 		}
+// 	}
+// 	.noUi-connect {
+// 		background: #dddddd;
+// 	}
+// 	.noUi-handle {
+// 		background: $white;
+// 	}
+// }
+
+// // Search facet ranges
+// .block.search-results {
+// 	.noUi-handle {
+// 		background-color: $green;
+// 	}
+// }
+
+// // Radio button facets
+// .fieldset .facetwp-type-radio {
+// 	display: flex;
+// 	.facetwp-radio {
+// 		position: relative;
+// 		padding-left: 25px;
+// 		background: none;
+// 		&:before {
+// 			content: "";
+// 			width: 15px;
+// 			height: 15px;
+// 			border: 1px solid;
+// 			border-radius: 50%;
+// 			display: inline-block;
+// 			position: absolute;
+// 			left: 0;
+// 			top: 50%;
+// 			transform: translateY(-50%);
+// 		}
+// 		& + .facetwp-radio {
+// 			margin-left: 20px;
+// 		}
+// 		&.checked,
+// 		&:hover,
+// 		&:focus {
+// 			background: none;
+// 			color: $green;
+// 			&:before {
+// 				background-color: $green;
+// 			}
+// 		}
+// 	}
+// }
